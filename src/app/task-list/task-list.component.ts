@@ -11,6 +11,7 @@ export class TaskListComponent implements OnInit {
   @Input() tasks: Task[];
   @Input() title: string;
   @Output() clickedTask = new EventEmitter();
+  @Output() deletedTask = new EventEmitter();
 
   constructor() { }
 
@@ -19,6 +20,10 @@ export class TaskListComponent implements OnInit {
 
   handleClick(taskId: number): void {
     this.clickedTask.emit(taskId);
+  }
+
+  deleteTask(taskId: number): void {
+    this.deletedTask.emit(taskId);
   }
 
 }

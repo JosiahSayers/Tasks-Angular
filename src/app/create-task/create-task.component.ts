@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Task } from '../models/task.model';
 
 @Component({
@@ -9,7 +9,9 @@ import { Task } from '../models/task.model';
 })
 export class CreateTaskComponent implements OnInit {
 
-  newTaskInput = new FormControl('');
+  newTaskForm = new FormGroup({
+    input: new FormControl('')
+  });
   @Output() taskEmitter = new EventEmitter();
   newTask: Task;
 
@@ -17,14 +19,16 @@ export class CreateTaskComponent implements OnInit {
 
   ngOnInit() {
     this.newTask = new Task();
-    this.newTaskInput.valueChanges.subscribe(value => {
-      this.newTask.title = value;
+    this.newTaskForm.valueChanges.subscribe(value => {
+      this.newTask.title = value.input;
     });
   }
 
   emitTask() {
-    this.taskEmitter.emit(this.newTask);
-    this.newTaskInput.reset();
+    if (this.newTask.title) {
+      this.taskEmitter.emit(this.newTask);
+      this.newTaskForm.reset();
+    }
   }
 
 }

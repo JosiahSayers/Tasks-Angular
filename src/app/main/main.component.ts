@@ -11,7 +11,7 @@ export class MainComponent implements OnInit {
 
   taskList: TaskList;
 
-  showingCompleted: boolean;
+  showCompletedTasks: boolean;
   completedTitle = 'Completed';
   uncompletedTitle = 'Need To Complete';
 
@@ -19,7 +19,7 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
     this.taskList = new TaskList();
-    this.showingCompleted = false;
+    this.showCompletedTasks = false;
   }
 
   addTaskToTaskList(task: Task) {
@@ -28,6 +28,10 @@ export class MainComponent implements OnInit {
 
   handleClickedTask(taskId: number): void {
     this.taskList.swapTask(taskId);
+  }
+
+  deleteTask(taskId: number): void {
+    this.taskList.deleteTask(taskId);
   }
 
 }

@@ -18,6 +18,20 @@ export class TaskList {
     this.uncompleted.push(newTask);
   }
 
+  public deleteTask(taskId: number): void {
+    if (this.isTaskComplete(taskId)) {
+      this.completed.splice(
+        this.completed.findIndex(task => task.id === taskId),
+        1
+      );
+    } else {
+      this.uncompleted.splice(
+        this.uncompleted.findIndex(task => task.id === taskId),
+        1
+      );
+    }
+  }
+
   private setNewIdAndIncrementTaskList(): number {
     return ++this.largestId;
   }

@@ -1,2 +1,4 @@
-<input type="text" [formControl]="newTaskInput" placeholder="Add a task...">
-<button (click)='emitTask()'>Create</button>
+<form [formGroup]="newTaskForm" (ngSubmit)="emitTask()">
+  <input type="text" formControlName="input" placeholder="Add a task...">
+  <button>Create</button>
+</form>
