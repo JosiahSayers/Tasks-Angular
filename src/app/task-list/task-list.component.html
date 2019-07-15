@@ -1,0 +1,6 @@
+<h3>{{title}}</h3>
+
+<div *ngFor="let task of tasks" (click)="handleClick(task.id)">
+  <p>Title: {{task.title}}</p>
+  <p>ID: {{task.id}}</p>
+</div>

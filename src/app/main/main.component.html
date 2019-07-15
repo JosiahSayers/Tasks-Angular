@@ -1,0 +1,14 @@
+<app-create-task (taskEmitter)="addTaskToTaskList($event)"></app-create-task>
+<button (click)="showingCompleted = !showingCompleted">Toggle</button>
+<app-task-list 
+  [tasks]="taskList.uncompleted"
+  *ngIf="!showingCompleted"
+  [title]="uncompletedTitle"
+  (clickedTask)="handleClickedTask($event)">
+</app-task-list>
+<app-task-list 
+  [tasks]="taskList.completed"
+  *ngIf="showingCompleted"
+  [title]="completedTitle"
+  (clickedTask)="handleClickedTask($event)">
+</app-task-list>
