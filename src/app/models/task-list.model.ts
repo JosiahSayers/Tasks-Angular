@@ -4,15 +4,35 @@ export class TaskList {
   protected completed: Task[];
   protected uncompleted: Task[];
   protected largestId: number;
+  public uid: string;
 
-  constructor() {
+  constructor(uid?: string) {
     this.largestId = 0;
     this.completed = [];
     this.uncompleted = [];
+    this.uid = uid ? uid : undefined;
+  }
+
+  public importTaskList(taskList: TaskList) {
+    if (taskList.completed.length > 0) {
+      this.completed = taskList.completed;
+    }
+
+    if (taskList.uncompleted.length > 0) {
+      this.uncompleted = taskList.uncompleted;
+    }
+
+    if (taskList.largestId) {
+      this.largestId = taskList.largestId;
+    }
+
+    if (taskList.uid) {
+      this.uid = taskList.uid;
+    }
   }
 
   public addTask(task: Task) {
-    const newTask = new Task();
+    const newTask = {} as Task;
     newTask.title = task.title;
     newTask.id = this.setNewIdAndIncrementTaskList();
     this.uncompleted.push(newTask);

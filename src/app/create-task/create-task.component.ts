@@ -18,7 +18,7 @@ export class CreateTaskComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.newTask = new Task();
+    this.newTask = {} as Task;
     this.newTaskForm.valueChanges.subscribe(value => {
       this.newTask.title = value.input;
     });

@@ -1,16 +1,18 @@
 <app-create-task (taskEmitter)="addTaskToTaskList($event)"></app-create-task>
 <button (click)="showCompletedTasks = !showCompletedTasks">Toggle</button>
 <app-task-list 
-  [tasks]="taskList.uncompleted"
-  *ngIf="!showCompletedTasks"
+  [tasks]="taskList?.uncompleted"
+  *ngIf="!showCompletedTasks && taskList"
   [title]="uncompletedTitle"
   (clickedTask)="handleClickedTask($event)"
   (deletedTask)="deleteTask($event)">
 </app-task-list>
 <app-task-list 
-  [tasks]="taskList.completed"
-  *ngIf="showCompletedTasks"
+  [tasks]="taskList?.completed"
+  *ngIf="showCompletedTasks && taskList"
   [title]="completedTitle"
   (clickedTask)="handleClickedTask($event)"
   (deletedTask)="deleteTask($event)">
 </app-task-list>
+
+<button (click)="this.auth.signOut()">Log Out</button>
