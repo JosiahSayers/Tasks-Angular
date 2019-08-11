@@ -2,28 +2,28 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument} from '@angular/fire/firestore';
 import { AuthService } from './auth.service';
 import { TaskList } from '../models/task-list.model';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DatabaseService{
 
-  taskListRef: AngularFirestoreDocument<TaskList>;
-  private user;
+  private taskListRef: AngularFirestoreDocument<TaskList>;
 
   constructor(
     private auth: AuthService,
     private afs: AngularFirestore
   ) {
-    this.auth.user$.subscribe(user => {
-      this.user = user;
-      this.initTaskList();
+    this.auth.user$.subscribe(() => {
+      if (this.auth.user) {
+        this.initTaskList();
+      }
     });
   }
 
   initTaskList() {
-      this.taskListRef = this.afs.doc(`tasklist/${this.user.uid}`);
+      this.taskListRef = this.afs.doc(`tasklist/${this.auth.user.uid}`);
       //this.taskListRef.set({ uid: this.user.uid } as TaskList, {merge: true});
   }
 
@@ -32,7 +32,7 @@ export class DatabaseService{
   }
 
   saveTaskList(taskList: TaskList) {
-      taskList.uid = this.user.uid;
-      this.afs.doc(`tasklist/${this.user.uid}`).set(JSON.parse(JSON.stringify(taskList)));
+      taskList.uid = this.auth.user.uid;
+      this.afs.doc(`tasklist/${this.auth.user.uid}`).set(JSON.parse(JSON.stringify(taskList)));
   }
 }

@@ -20,14 +20,13 @@ export class MainComponent implements OnInit {
   constructor(public auth: AuthService, private database: DatabaseService) { }
 
   ngOnInit() {
-    this.taskList = new TaskList();
     this.showCompletedTasks = false;
-    this.auth.user$.subscribe(user => {
+    this.auth.user$.subscribe(() => {
       this.database.getTaskList().subscribe(taskList => {
-        console.log(taskList);
+        this.taskList = new TaskList();
         this.taskList.importTaskList(taskList);
       });
-    })
+    });
   }
 
   addTaskToTaskList(task: Task) {
@@ -37,7 +36,6 @@ export class MainComponent implements OnInit {
 
   handleClickedTask(taskId: number): void {
     this.taskList.swapTask(taskId);
-    console.log(this.taskList);
     this.database.saveTaskList(this.taskList);
   }
 
