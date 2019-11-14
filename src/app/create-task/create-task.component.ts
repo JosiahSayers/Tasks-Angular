@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Task } from '../models/task.model';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-create-task',
@@ -14,6 +15,7 @@ export class CreateTaskComponent implements OnInit {
   });
   @Output() taskEmitter = new EventEmitter();
   newTask: Task;
+  faPlus = faPlus;
 
   constructor() { }
 

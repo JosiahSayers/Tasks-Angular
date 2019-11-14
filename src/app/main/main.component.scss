@@ -1,3 +1,13 @@
 app-loading-spinner {
   height: 99vh;
 }
+
+.container {
+  padding-top: 110px;
+  display:flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: calc(100vh - 110px);
+  background-color: #ecf0f1;
+  align-items: center;
+}

@@ -15,6 +15,8 @@ import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestor
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+import { TaskComponent } from './task/task.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.compo
     TaskListComponent,
     MainComponent,
     LoginComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    TaskComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +35,7 @@ import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.compo
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
+    FontAwesomeModule
   ],
   providers: [
     AuthService,

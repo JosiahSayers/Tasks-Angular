@@ -1,7 +1,9 @@
 <h3>{{title}}</h3>
 
-<div *ngFor="let task of tasks">
-  <p (click)="handleClick(task.id)">Title: {{task.title}}</p>
-  <p>ID: {{task.id}}</p>
-  <div (click)="deleteTask(task.id)">🗑</div>
-</div>
+<ul *ngFor="let task of tasks">
+  <app-task 
+    [task]="task"
+    (taskClick)="handleClick(task.id)"
+    (delete)="deleteTask(task.id)">
+  </app-task>
+</ul>

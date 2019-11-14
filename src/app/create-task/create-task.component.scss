@@ -1,15 +1,62 @@
 form {
+  min-width: 320px;
   width: 100vw;
-  height: 10vh;
-  background-color: red;
-
+  height: 90px;
+  background-color: #e74c3c;
+  position: fixed;
+  padding-left: 15px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  box-shadow: 1px 1px 15px black;
+  z-index: 999;
 }
 
-input {
-  width: 85%;
-  height: 50%;
+#new-item{
+  width: 90%;
+  height: 45px;
+  float:left;
+  border-radius: 5px;
+  border-top-right-radius: 45px;
+  border-bottom-right-radius: 45px;
+  font-size: 1.5em;
+  background-color: rgba(255, 255, 255, 0.25);
+  padding-left: 15px;
+  padding-right: 55px;
+  color: rgba(236, 240, 241,0.95);
+
+  outline:none;
+  border:none;
+  -webkit-border-before-style: none;
+  box-shadow:none;
+}
+
+#new-item::placeholder{
+  color: rgba(236, 240, 241,0.5);
+
+}
+
+#add-item{
+  transform: translate(-100%, 0);
+  cursor: pointer;
+  color: rgba(236, 240, 241,0.9);
+  font-size: 17pt;
+  min-width: 45px;
+
+  border-radius: 45px;
+  outline:none;
+  border:none;
+  background-color: rgba(241, 196, 15,0.8);
+  -webkit-border-before-style: none;
+  box-shadow: none;
+  height: 45px;
+  width: 45px;
+}
+
+#add-item:hover{
+  background-color: rgba(241, 196, 15,0.7);
+}
+
+#add-item:active{
+  background-color: rgba(241, 196, 15,0.8);
 }
