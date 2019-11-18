@@ -64,6 +64,15 @@ li{
       }
     }
   }
+
+  @media screen and (min-width: 550px) {
+    max-width: unset;
+  }
+
+  @media screen and (min-width: 790px) {
+    max-width: unset;
+    width: 42vw;
+  }
 }
 
 .expanded {

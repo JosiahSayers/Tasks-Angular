@@ -2,8 +2,6 @@
 <app-loading-spinner *ngIf="!taskList"></app-loading-spinner>
 <div *ngIf="taskList" class="container">
 
-  <button (click)="showCompletedTasks = !showCompletedTasks">Toggle</button>
-
   <app-task-list 
     [tasks]="taskList?.uncompleted"
     *ngIf="taskList?.uncompleted.length > 0"
@@ -23,7 +21,7 @@
     (clickedTask)="handleClickedTask($event)"
     (deletedTask)="deleteTask($event)">
   </app-task-list>
-
-  <button (click)="this.auth.signOut()">Log Out</button>
-
+  
 </div>
+
+<button (click)="this.auth.signOut()">Log Out</button>
