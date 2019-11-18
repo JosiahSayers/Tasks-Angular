@@ -8,7 +8,8 @@
     [title]="uncompletedTitle"
     [isComplete]="false"
     (clickedTask)="handleClickedTask($event)"
-    (deletedTask)="deleteTask($event)">
+    (deletedTask)="deleteTask($event)"
+    (update)="updateTask($event)">
   </app-task-list>
 
   <div class="seperator" *ngIf="shouldDisplaySeperator"></div>
@@ -19,7 +20,8 @@
     [title]="completedTitle"
     [isComplete]="true"
     (clickedTask)="handleClickedTask($event)"
-    (deletedTask)="deleteTask($event)">
+    (deletedTask)="deleteTask($event)"
+    (update)="updateTask($event)">
   </app-task-list>
   
 </div>

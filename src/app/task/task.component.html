@@ -1,8 +1,14 @@
-<li [class.expanded]="isExpanded" (click)="toggleExpandedStatus()">
+<li [class.expanded]="isExpanded" (click)="handleClick()">
   <span
+    *ngIf="!isExpanded"
     [class.completed]="isComplete">
     {{ task.title }}
   </span>
+
+  <form *ngIf="isExpanded" #taskTitle="ngForm" (submit)="sendUpdate()">
+    <input type="text" [(ngModel)]="task.title" name="title">
+  </form>
+
   <div class="task-icons">
       <fa-icon 
         [icon]="trashIcon"

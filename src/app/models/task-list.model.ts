@@ -60,7 +60,7 @@ export class TaskList {
     let taskIndex: number;
     let task: Task[];
 
-    if(this.isTaskComplete(taskId)) {
+    if (this.isTaskComplete(taskId)) {
       taskIndex = this.completed.findIndex(task => task.id === taskId);
       task = this.completed.splice(taskIndex, 1);
       this.addElementAndSort(task[0], false);
@@ -93,5 +93,19 @@ export class TaskList {
 
   get uncompletedLength(): number {
     return this.completed.length;
+  }
+
+  public updateTask(task: Task) {
+    const isTaskComplete = this.isTaskComplete(task.id);
+    const taskListRef = isTaskComplete ? this.completed : this.uncompleted;
+    const taskIndex = taskListRef.findIndex((item) => item.id === task.id);
+
+    if (isTaskComplete) {
+      this.completed[taskIndex].sortingIndex = task.sortingIndex;
+      this.completed[taskIndex].title = task.title;
+    } else {
+      this.uncompleted[taskIndex].sortingIndex = task.sortingIndex;
+      this.uncompleted[taskIndex].title = task.title;
+    }
   }
 }

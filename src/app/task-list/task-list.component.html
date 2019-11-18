@@ -6,6 +6,7 @@
     [task]="task"
     [isComplete]="isComplete"
     (check)="handleClick(task.id)"
-    (delete)="deleteTask(task.id)">
+    (delete)="deleteTask(task.id)"
+    (update)="sendUpdate($event)">
   </app-task>
 </ul>

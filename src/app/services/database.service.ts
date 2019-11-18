@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class DatabaseService{
+export class DatabaseService {
 
   private taskListRef: AngularFirestoreDocument<TaskList>;
 
@@ -24,7 +24,7 @@ export class DatabaseService{
 
   initTaskList() {
       this.taskListRef = this.afs.doc(`tasklist/${this.auth.user.uid}`);
-      //this.taskListRef.set({ uid: this.user.uid } as TaskList, {merge: true});
+      // this.taskListRef.set({ uid: this.user.uid } as TaskList, {merge: true});
   }
 
   getTaskList(): Observable<TaskList> {

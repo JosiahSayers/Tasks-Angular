@@ -49,4 +49,9 @@ export class MainComponent implements OnInit {
       this.taskList.completedLength > 0 && 
       this.taskList.uncompletedLength > 0;
   }
+
+  updateTask(task: Task) {
+    this.taskList.updateTask(task);
+    this.database.saveTaskList(this.taskList);
+  }
 }

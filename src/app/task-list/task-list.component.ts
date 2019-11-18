@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from '../models/task.model';
+import { TaskList } from '../models/task-list.model';
 
 @Component({
   selector: 'app-task-list',
@@ -13,6 +14,7 @@ export class TaskListComponent implements OnInit {
   @Input() isComplete: boolean;
   @Output() clickedTask = new EventEmitter();
   @Output() deletedTask = new EventEmitter();
+  @Output() update = new EventEmitter<Task>();
 
   constructor() { }
 
@@ -27,4 +29,7 @@ export class TaskListComponent implements OnInit {
     this.deletedTask.emit(taskId);
   }
 
+  sendUpdate(task: Task) {
+    this.update.emit(task);
+  }
 }
