@@ -27,6 +27,11 @@ li{
     font-weight: 700;
     min-height: 16pt;
     width: max-content;
+
+    &.completed {
+      text-decoration: line-through;
+      color: rgba(100, 100, 100,0.7);
+    }
   }
 
   .task-icons {
@@ -38,6 +43,26 @@ li{
     color: rgba(127, 140, 141,1.0);
     min-width: 50px;
     height: 5vh;
+
+    .check-icon {
+      transform: translate(2px, 1.5px);
+    
+      &:hover {
+        color: rgba(46, 204, 113, 0.3);
+      }
+    
+      &.completed {
+        color: rgba(46, 204, 113,1.0);
+      }
+    }
+    
+    .trash-icon {
+      margin-right: 0.7rem;
+    
+      &:hover {
+        color: rgba(255, 0, 0, 1);
+      }
+    }
   }
 }
 
@@ -48,14 +73,6 @@ li{
   padding-top: 5px;
   padding-bottom: 5px;
   z-index: 998;
-}
-
-.check-icon {
-  transform: translate(2px, 1.5px);
-}
-
-.trash-icon {
-  margin-right: 0.7rem;
 }
 
 svg {

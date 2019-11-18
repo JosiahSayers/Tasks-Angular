@@ -6,16 +6,20 @@
 
   <app-task-list 
     [tasks]="taskList?.uncompleted"
-    *ngIf="!showCompletedTasks && taskList"
+    *ngIf="taskList?.uncompleted.length > 0"
     [title]="uncompletedTitle"
+    [isComplete]="false"
     (clickedTask)="handleClickedTask($event)"
     (deletedTask)="deleteTask($event)">
   </app-task-list>
 
+  <div class="seperator" *ngIf="shouldDisplaySeperator"></div>
+
   <app-task-list 
     [tasks]="taskList?.completed"
-    *ngIf="showCompletedTasks && taskList"
+    *ngIf="taskList?.completed.length > 0"
     [title]="completedTitle"
+    [isComplete]="true"
     (clickedTask)="handleClickedTask($event)"
     (deletedTask)="deleteTask($event)">
   </app-task-list>

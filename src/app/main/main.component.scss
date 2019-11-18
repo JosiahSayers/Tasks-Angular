@@ -10,4 +10,10 @@ app-loading-spinner {
   min-height: calc(100vh - 110px);
   background-color: #ecf0f1;
   align-items: center;
+
+  div.seperator {
+    width: 75%;
+    border-bottom: solid 5px black;
+    height: 0px;
+  }
 }

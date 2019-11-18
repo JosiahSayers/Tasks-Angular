@@ -1,8 +1,20 @@
 <li [class.expanded]="isExpanded" (click)="toggleExpandedStatus()">
-  <span>{{ task.title }}</span>
+  <span
+    [class.completed]="isComplete">
+    {{ task.title }}
+  </span>
   <div class="task-icons">
-      <fa-icon [icon]="trashIcon" class="trash-icon" (click)="sendDelete()"></fa-icon>
-      <fa-icon [icon]="checkIcon" class="check-icon" (click)="sendCheck()"></fa-icon>
+      <fa-icon 
+        [icon]="trashIcon"
+        class="trash-icon"
+        (click)="sendDelete()">
+      </fa-icon>
+      <fa-icon
+        [icon]="checkIcon"
+        class="check-icon"
+        (click)="sendCheck()"
+        [class.completed]="isComplete">
+      </fa-icon>
     <svg></svg>
   </div>
 </li>

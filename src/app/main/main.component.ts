@@ -44,4 +44,9 @@ export class MainComponent implements OnInit {
     this.database.saveTaskList(this.taskList);
   }
 
+  get shouldDisplaySeperator(): boolean {
+    return this.taskList && 
+      this.taskList.completedLength > 0 && 
+      this.taskList.uncompletedLength > 0;
+  }
 }

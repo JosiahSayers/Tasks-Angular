@@ -14,6 +14,7 @@ export class TaskComponent {
   isExpanded = false;
 
   @Input() task: Task;
+  @Input() isComplete: boolean;
   @Output() check = new EventEmitter<void>();
   @Output() delete = new EventEmitter<void>();
 

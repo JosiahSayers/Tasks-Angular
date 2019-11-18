@@ -10,6 +10,7 @@ export class TaskListComponent implements OnInit {
 
   @Input() tasks: Task[];
   @Input() title: string;
+  @Input() isComplete: boolean;
   @Output() clickedTask = new EventEmitter();
   @Output() deletedTask = new EventEmitter();
 

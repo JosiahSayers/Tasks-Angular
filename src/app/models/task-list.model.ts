@@ -86,4 +86,12 @@ export class TaskList {
       this.uncompleted.sort((a, b) => a.id - b.id);
     }
   }
+
+  get completedLength(): number {
+    return this.completed.length;
+  }
+
+  get uncompletedLength(): number {
+    return this.completed.length;
+  }
 }
