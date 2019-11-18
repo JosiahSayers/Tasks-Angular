@@ -14,10 +14,18 @@ export class TaskComponent {
   isExpanded = false;
 
   @Input() task: Task;
-  @Output() taskClick = new EventEmitter();
-  @Output() delete = new EventEmitter();
+  @Output() check = new EventEmitter<void>();
+  @Output() delete = new EventEmitter<void>();
 
   toggleExpandedStatus() {
     this.isExpanded = !this.isExpanded;
+  }
+
+  sendDelete(): void {
+    this.delete.emit();
+  }
+
+  sendCheck(): void {
+    this.check.emit();
   }
 }
