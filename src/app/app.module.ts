@@ -16,7 +16,6 @@ import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { TaskComponent } from './task/task.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -35,7 +34,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    FontAwesomeModule,
     FormsModule
   ],
   providers: [

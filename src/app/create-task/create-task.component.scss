@@ -51,12 +51,21 @@ form {
   box-shadow: none;
   height: 45px;
   width: 45px;
-}
+  padding: 0;
 
-#add-item:hover{
-  background-color: rgba(241, 196, 15,0.7);
-}
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-#add-item:active{
-  background-color: rgba(241, 196, 15,0.8);
+  i {
+    font-size: 2.5rem;
+  }
+
+  &:hover {
+    background-color: rgba(241, 196, 15,0.7);
+  }
+
+  &:active {
+    background-color: rgba(241, 196, 15,0.8);
+  }
 }

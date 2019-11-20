@@ -1,7 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from '../models/task.model';
-import { faTrashAlt, faCheckSquare } from '@fortawesome/free-regular-svg-icons';
-import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-task',
@@ -10,8 +8,6 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class TaskComponent {
 
-  trashIcon = faTrashAlt;
-  checkIcon = faCheckSquare;
   isExpanded = false;
 
   @Input() task: Task;

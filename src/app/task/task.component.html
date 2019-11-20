@@ -10,17 +10,21 @@
   </form>
 
   <div class="task-icons">
-      <fa-icon 
-        [icon]="trashIcon"
-        class="trash-icon"
-        (click)="sendDelete()">
-      </fa-icon>
-      <fa-icon
-        [icon]="checkIcon"
-        class="check-icon"
+      <i class="material-icons trash-icon">
+        delete
+      </i>
+
+      <i
+        class="material-icons check-icon"
         (click)="sendCheck()"
-        [class.completed]="isComplete">
-      </fa-icon>
-    <svg></svg>
+        *ngIf="!isComplete">
+        check_circle_outline
+      </i>
+      <i
+      class="material-icons check-icon completed"
+      (click)="sendCheck()"
+      *ngIf="isComplete">
+      check_circle
+    </i>
   </div>
 </li>
