@@ -12,11 +12,12 @@ import { AuthService } from './services/auth.service';
 import { DatabaseService } from './services/database.service';
 import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
-import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { TaskComponent } from './task/task.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     AngularFirestoreModule,
     AngularFireAuthModule,
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     AuthService,
