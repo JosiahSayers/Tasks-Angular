@@ -8,14 +8,14 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  
+
   user$: Observable<User>;
   user: User;
 
   constructor(
     private afAuth: AngularFireAuth,
     private router: Router
-  ){
+  ) {
     this.afAuth.authState.subscribe(user => {
       this.setCurrentUser(user);
     });
