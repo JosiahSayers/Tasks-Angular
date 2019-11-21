@@ -17,6 +17,7 @@ import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.compo
 import { TaskComponent } from './task/task.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { AccountQuickInfoComponent } from './account/account-quick-info/account-quick-info.component';
 
 @NgModule({
   declarations: [
@@ -26,13 +27,14 @@ import { environment } from '../environments/environment';
     MainComponent,
     LoginComponent,
     LoadingSpinnerComponent,
-    TaskComponent
+    TaskComponent,
+    AccountQuickInfoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireModule.initializeApp(environment.FIREBASE_CONFIG),
     AngularFirestoreModule.enablePersistence(),
     AngularFireAuthModule,
     FormsModule,

@@ -34,7 +34,7 @@ export class AuthService {
     await this.afAuth.auth.signOut().then(() => {
       this.setCurrentUser(null);
     });
-    return this.router.navigate(['']);
+    return this.router.navigate(['/login']);
   }
 
   private setCurrentUser(user: User): void {

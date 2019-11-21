@@ -1,0 +1,56 @@
+@import '../../../assets/styles/material-button.scss';
+
+div#account-floater {
+  position: fixed;
+  z-index: 9999;
+  bottom: 2vh;
+  left: 4vw;
+  transition: 1.5s;
+
+  img {
+    border-radius: 90px;
+    height: 15vw;
+    cursor: pointer;
+  }
+
+  div#account-info {
+    width: 0px;
+    height: 0px;
+    display: none;
+  }
+
+  &.expanded {
+    background-color: rgba(133, 151, 165, 0.9);
+    padding: 15px;
+    border-radius: 4px;
+    width: 85vw;
+    height: 15vh;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: flex-end;
+
+    div#account-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+
+      p.display-name {
+        font-size: 2.5rem;
+      }
+
+      p.sign-in-message {
+        font-size: 1.5rem;
+      }
+    }
+
+    img {
+      height: 20vw;
+      max-height: 13vh;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+<div
+  id="account-floater"
+  [class.expanded]="expanded">
+
+  <div id="account-info" *ngIf="loggedIn">
+    <p class="display-name">{{ user.displayName }}</p>
+    <button (click)="signOut()" class="mat-button">Sign Out</button>
+  </div>
+
+  <div id="account-info" *ngIf="!loggedIn">
+    <p class="sign-in-message">Sign in to save your tasks!</p>
+    <button (click)="navigateToLogin()" class="mat-button">Sign In</button>
+  </div>
+
+  <img 
+    src="{{ userImage }}"
+    (click)="toggleExpanded()">
+</div>
