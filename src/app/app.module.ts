@@ -18,6 +18,8 @@ import { TaskComponent } from './task/task.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { AccountQuickInfoComponent } from './account/account-quick-info/account-quick-info.component';
+import {FirebaseUIModule, firebase, firebaseui} from 'firebaseui-angular';
+import { FIREBASE_UI_AUTH_CONFIG } from './app-config';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { AccountQuickInfoComponent } from './account/account-quick-info/account-
     AngularFirestoreModule.enablePersistence(),
     AngularFireAuthModule,
     FormsModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    FirebaseUIModule.forRoot(FIREBASE_UI_AUTH_CONFIG)
   ],
   providers: [
     AuthService,

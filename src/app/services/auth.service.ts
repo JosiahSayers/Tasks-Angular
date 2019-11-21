@@ -30,6 +30,11 @@ export class AuthService {
     return this.router.navigate(['/main']);
   }
 
+  signIn(user: User) {
+    this.setCurrentUser(user);
+    this.router.navigate(['/main']);
+  }
+
   async signOut() {
     await this.afAuth.auth.signOut().then(() => {
       this.setCurrentUser(null);
