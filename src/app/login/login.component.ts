@@ -11,14 +11,5 @@ export class LoginComponent {
   constructor(
     public auth: AuthService
   ) { }
-
-  successCallback(authResponse) {
-    console.log(authResponse);
-    this.auth.signIn(authResponse.user);
-  }
-
-  errorCallback(event) {
-    console.log(event);
-  }
-
+  
 }

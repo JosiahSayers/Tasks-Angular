@@ -1,5 +1,10 @@
-<app-create-task (taskEmitter)="addTaskToTaskList($event)"></app-create-task>
+<header>
+  <app-account-header></app-account-header>
+  <app-create-task (taskEmitter)="addTaskToTaskList($event)"></app-create-task>
+</header>
+
 <app-loading-spinner *ngIf="!taskList"></app-loading-spinner>
+
 <div *ngIf="taskList" class="container">
 
   <app-task-list 
